@@ -1,31 +1,41 @@
-# Change these first
-owner: upptime # Your GitHub organization or username, where this repository lives
-repo: upptime # The name of this repository
+# Upptime configuration for Vblast — https://upptime.js.org/docs/configuration
+#
+# This file lives in a SEPARATE GitHub repo (not the vblast app repo).
+# See UPPTIME-SETUP.md for the one-time setup steps.
 
+# GitHub repo that hosts the status page + uptime history.
+owner: Vblast          # GitHub org/user (github.com/Vblast)
+repo: status           # repo name -> Vblast/status
+
+# Endpoints to monitor. Upptime checks each every ~5 min via GitHub Actions
+# and records response time + up/down history.
 sites:
-  - name: Google
-    url: https://www.google.com
-  - name: Wikipedia
-    url: https://en.wikipedia.org
-  - name: Hacker News
-    url: https://news.ycombinator.com
-  - name: Test Broken Site
-    url: https://thissitedoesnotexist.koj.co
+  - name: Vblast App (dashboard)
+    url: https://app.vblast.net/api/health   # 200/503 from real DB-connectivity check
+  - name: Vblast Click-to-call / QR handoff
+    url: https://app.vblast.net               # dashboard + /q short-link host
+  - name: Vblast Marketing Site
+    url: https://vblast.net
 
+# Public status website (built by upptime, deployed to GitHub Pages).
 status-website:
-  # Add your custom domain name, or remove the `cname` line if you don't have a domain
-  # Uncomment the `baseUrl` line if you don't have a custom domain and add your repo name there
-  cname: demo.upptime.js.org
-  # baseUrl: /your-repo-name
-  logoUrl: https://raw.githubusercontent.com/upptime/upptime.js.org/master/static/img/icon.svg
-  name: Upptime
-  introTitle: "**Upptime** is the open-source uptime monitor and status page, powered entirely by GitHub."
-  introMessage: This is a sample status page which uses **real-time** data from our [GitHub repository](https://github.com/upptime/upptime). No server required — just GitHub Actions, Issues, and Pages. [**Get your own for free**](https://github.com/upptime/upptime)
+  cname: status.vblast.net        # set the matching CNAME in GoDaddy (see SETUP)
+  name: Vblast Status
+  introTitle: "Vblast Service Status"
+  introMessage: "Live status and uptime history for the Vblast platform. Subscribe or check here during any incident."
+  logoUrl: https://vblast.net/favicon.ico
   navbar:
     - title: Status
       href: /
-    - title: GitHub
-      href: https://github.com/$OWNER/$REPO
+    - title: Vblast
+      href: https://vblast.net
+    - title: Support
+      href: "mailto:support@vblast.net"
 
-# Upptime also supports notifications, assigning issues, and more
-# See https://upptime.js.org/docs/configuration
+# Optional: who gets auto-assigned to the GitHub issue opened on an outage.
+assignees:
+  - gipper2k
+
+# Notifications (optional). Upptime can open GitHub issues on downtime by
+# default; you can also wire Slack/SMS/email later via the `notifications:` key.
+# Docs: https://upptime.js.org/docs/notifications
