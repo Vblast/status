@@ -7,7 +7,12 @@
 owner: Vblast          # GitHub org/user (github.com/Vblast)
 repo: status           # repo name -> Vblast/status
 
-# Endpoints to monitor. Upptime checks each every ~5 min via GitHub Actions
+# Uptime check frequency. GitHub bills a 1-minute minimum per job, so a dense
+# cron burns minutes without adding resolution. Every 2 hours.
+workflowSchedule:
+  uptime: "0 */2 * * *"
+
+# Endpoints to monitor. Upptime checks each every 2 hours via GitHub Actions
 # and records response time + up/down history.
 sites:
   - name: Vblast App (dashboard)
